@@ -49,7 +49,11 @@ addBaseMaps <- function(map, carto_key = "", position = "topright") {
   } else {
     # ------ Free fallback (no API key required) ------
     map <- map |>
-      leaflet::addProviderTiles("Esri.WorldGrayCanvas", group = "Positron")
+      leaflet::addProviderTiles(
+        "Esri.WorldGrayCanvas",
+        group = "Positron",
+        options = leaflet::providerTileOptions(maxNativeZoom = 16, maxZoom = 18)
+      )
   }
 
   map |>
