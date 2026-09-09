@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/julian-city/croquis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/julian-city/croquis/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-Croquis is a transit sketch planning tool. Use it to rapidly create and edit transit networks and schedules in GTFS (General Transit Feed Specification) format. The easiest way to get started, once Croquis is installed, is to launch the Shiny app using `croquis()`.
+Croquis (Crow-KEY) is a transit sketch planning tool. Use it to rapidly create and edit transit networks and schedules in GTFS (General Transit Feed Specification) format. The easiest way to get started, once Croquis is installed, is to launch the Shiny app using `croquis()`.
 
 Using the Croquis app, you can create a new GTFS from scratch or upload an existing one and edit it. Croquis notably grants you the option to toggle trip speeds and headways by hour, as well as speeds across route segments to ensure that the output GTFS reflects real-world variability in service frequency and speed. The [Produce a GTFS](https://croquis.comotive.net/articles/produce-gtfs.html) vignette provides a walkthrough.
 
@@ -90,7 +90,3 @@ Two helpful companion functions have been included for extracting GTFS data pert
 ## License
 
 MIT License
-
-## Disclaimers
-
-This package is in active development. Use with discretion and validate outputs for quality and accuracy.

@@ -10,10 +10,10 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/julian-city/croquis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/julian-city/croquis/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-Croquis is a transit sketch planning tool. Use it to rapidly create and
-edit transit networks and schedules in GTFS (General Transit Feed
-Specification) format. The easiest way to get started, once Croquis is
-installed, is to launch the Shiny app using `croquis()`.
+Croquis (Crow-KEY) is a transit sketch planning tool. Use it to rapidly
+create and edit transit networks and schedules in GTFS (General Transit
+Feed Specification) format. The easiest way to get started, once Croquis
+is installed, is to launch the Shiny app using `croquis()`.
 
 Using the Croquis app, you can create a new GTFS from scratch or upload
 an existing one and edit it. Croquis notably grants you the option to
@@ -145,8 +145,3 @@ or excludes data related to routes supplied to `retain_routes` or
 ## License
 
 MIT License
-
-## Disclaimers
-
-This package is in active development. Use with discretion and validate
-outputs for quality and accuracy.

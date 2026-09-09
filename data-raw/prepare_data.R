@@ -1,12 +1,12 @@
 # data-raw/prepare_data.R
 
-#Translink Vancouver GTFS (June 2026)
+#Translink Vancouver GTFS (June 2026 - January 2027)
 
-translink_filepath <- "https://files.mobilitydatabase.org/mdb-696/mdb-696-202605020004/mdb-696-202605020004.zip"
-#filepath retrieved on Monday May 4th
+translink_filepath <- "https://files.mobilitydatabase.org/mdb-696/mdb-696-202609050032/mdb-696-202609050032.zip"
+#filepath retrieved on Wednesday September 9th
 
 translink_gtfs <- gtfstools::read_gtfs(translink_filepath)
-translink <- gtfs_to_ssfs(translink_gtfs)
+translink <- gtfs_to_ssfs(translink_gtfs, max_date = as.Date("2026-09-25"))
 
 #STM GTFS (mile end, STM metro and ligne jaune): May-June 2025 schedule (before bus network redesign)
 
