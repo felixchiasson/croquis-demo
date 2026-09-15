@@ -2,7 +2,7 @@
 name = "croquis"
 entrypoint = "app.R"
 access_type = "external"
-content_type = "shiny-r"
+content_type = "shiny"
 
 [language]
 name = "r"
