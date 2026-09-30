@@ -354,7 +354,7 @@ apply_gtfs_speeds_to_ssfs <- function(
 
         if (current_index == next_index) {
           cli::cli_warn(
-            "Calculated interstop distance {itin_stop_seq$stop_id[index]} -> {itin_stop_seq$stop_id[index + 1]} (itin {itin_id}) directly between both stops."
+            "Calculated interstop distance {interstops_i$stop_id[index]} -> {interstops_i$lead_stop_id[index]} (shape {shape_id_i}) directly between both stops."
           )
           interstop_distances[index] <- as.numeric(
             st_distance(
