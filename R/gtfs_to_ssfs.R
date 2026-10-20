@@ -162,7 +162,24 @@ gtfs_to_ssfs <- function(
 
   #determine max date and min date
   if (!is.null(max_date)) {
+    #max date is specified, min date is the max value between max date minus 7 days and
+    #min date of calendar table or calendar dates table
+    if (!"calendar" %in% gtfs_table_names) {
+      #use min of calendar dates
+      min_date_cal <-
+        gtfs$calendar_dates |>
+        filter(exception_type == 1) |>
+        summarise(min_date = min(date)) |>
+        pull(min_date)
+    } else {
+      #gtfs uses calendar table, determine min date based on calendar table
+      min_date_cal <-
+        gtfs$calendar |>
+        summarise(min_date = min(end_date)) |>
+        pull(min_date)
+    }
     min_date <- max_date - days(7)
+    min_date <- max(min_date, min_date_cal)
   } else {
     #max date is null, use either max of calendar_dates or calendar as max date
     if (!"calendar" %in% gtfs_table_names) {
@@ -172,14 +189,26 @@ gtfs_to_ssfs <- function(
         filter(exception_type == 1) |>
         summarise(max_date = max(date)) |>
         pull(max_date)
+
+      min_date_cal <-
+        gtfs$calendar_dates |>
+        filter(exception_type == 1) |>
+        summarise(min_date = min(date)) |>
+        pull(min_date)
     } else {
       #gtfs uses calendar table, determine max date normally
       max_date <-
         gtfs$calendar |>
         summarise(max_date = max(end_date)) |>
         pull(max_date)
+
+      min_date_cal <-
+        gtfs$calendar |>
+        summarise(min_date = min(end_date)) |>
+        pull(min_date)
     }
     min_date <- max_date - days(7)
+    min_date <- max(min_date, min_date_cal)
   }
 
   #create route_calendar (standard whether input GTFS has calendar or calendar_dates)
@@ -250,8 +279,8 @@ gtfs_to_ssfs <- function(
       #only include service ids associated with the route(s) of interest
       filter(service_id %in% route_service_ids) |>
       filter(
-        start_date < max_date &
-          end_date > min_date
+        start_date <= max_date &
+          end_date >= min_date
       ) |>
       #filter out any services that are totally inactive
       filter(
