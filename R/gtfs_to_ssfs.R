@@ -162,7 +162,24 @@ gtfs_to_ssfs <- function(
 
   #determine max date and min date
   if (!is.null(max_date)) {
+    #max date is specified, min date is the max value between max date minus 7 days and
+    #min date of calendar table or calendar dates table
+    if (!"calendar" %in% gtfs_table_names) {
+      #use min of calendar dates
+      min_date_cal <-
+        gtfs$calendar_dates |>
+        filter(exception_type == 1) |>
+        summarise(min_date = min(date)) |>
+        pull(min_date)
+    } else {
+      #gtfs uses calendar table, determine min date based on calendar table
+      min_date_cal <-
+        gtfs$calendar |>
+        summarise(min_date = min(end_date)) |>
+        pull(min_date)
+    }
     min_date <- max_date - days(7)
+    min_date <- max(min_date, min_date_cal)
   } else {
     #max date is null, use either max of calendar_dates or calendar as max date
     if (!"calendar" %in% gtfs_table_names) {
@@ -172,14 +189,26 @@ gtfs_to_ssfs <- function(
         filter(exception_type == 1) |>
         summarise(max_date = max(date)) |>
         pull(max_date)
+
+      min_date_cal <-
+        gtfs$calendar_dates |>
+        filter(exception_type == 1) |>
+        summarise(min_date = min(date)) |>
+        pull(min_date)
     } else {
       #gtfs uses calendar table, determine max date normally
       max_date <-
         gtfs$calendar |>
         summarise(max_date = max(end_date)) |>
         pull(max_date)
+
+      min_date_cal <-
+        gtfs$calendar |>
+        summarise(min_date = min(end_date)) |>
+        pull(min_date)
     }
     min_date <- max_date - days(7)
+    min_date <- max(min_date, min_date_cal)
   }
 
   #create route_calendar (standard whether input GTFS has calendar or calendar_dates)
@@ -250,8 +279,8 @@ gtfs_to_ssfs <- function(
       #only include service ids associated with the route(s) of interest
       filter(service_id %in% route_service_ids) |>
       filter(
-        start_date < max_date &
-          end_date > min_date
+        start_date <= max_date &
+          end_date >= min_date
       ) |>
       #filter out any services that are totally inactive
       filter(
@@ -616,7 +645,7 @@ gtfs_to_ssfs <- function(
     select(stop_id, stop_name, stop_lat, stop_lon) |>
     st_as_sf(
       coords = c("stop_lon", "stop_lat"),
-      crs = 4269
+      crs = 4326
     )
 
   #3. Identify unique route itineraries (itin)---------------------------------
@@ -930,7 +959,7 @@ gtfs_to_ssfs <- function(
     filter(shape_id %in% unique_shape_id) |>
     st_as_sf(
       coords = c("shape_pt_lon", "shape_pt_lat"),
-      crs = 4269
+      crs = 4326
     ) |>
     #arrange(shape_id,shape_pt_sequence) |> #already arranged above
     group_by(shape_id) |>
@@ -992,7 +1021,7 @@ gtfs_to_ssfs <- function(
     ) |>
     st_as_sf(
       coords = c("shape_pt_lon", "shape_pt_lat"),
-      crs = 4269
+      crs = 4326
     ) |>
     arrange(shape_id, shape_pt_sequence) |>
     select(itin_id, shape_pt_sequence, geometry) #INCLUDE shape_dist_traveled eventually
@@ -1017,28 +1046,39 @@ gtfs_to_ssfs <- function(
     select(itin_id, route_id, direction_id, trip_headsign, geometry) |>
     st_as_sf()
 
-  # it is still possible that itins with the same ids could be generated.
-  #Eventually other edge cases that create this situation will need to be addressed.
-
   #define stop_seq by itin_id-----------------------------
 
-  #calculate interstop distances
+  #calculate interstop distance
 
   message("Calculating interstop distance")
 
-  interstop_distances <- croquis_parallel_lapply(
-    unique(stop_seq_proto$itin_id),
+  anchored <- croquis_parallel_lapply(
+    itin$itin_id,
     function(itin_id_i) {
-      compute_interstop_distances_for_itin(
-        itin_id = itin_id_i,
-        stop_seq_proto = stop_seq_proto,
-        shapes_points = shapes_points,
-        stops = stops
+      seq_i <- stop_seq_proto[stop_seq_proto$itin_id == itin_id_i, ] |>
+        arrange(stop_sequence)
+      res <- anchor_stops_to_itin(
+        line = sf::st_geometry(itin)[itin$itin_id == itin_id_i][1],
+        stop_points = sf::st_geometry(stops)[match(
+          seq_i$stop_id,
+          stops$stop_id
+        )],
+        densify = TRUE,
+        itin_id = itin_id_i
+      )
+      list(
+        geometry = res$geometry,
+        dist = tibble(
+          stop_seq_id = seq_i$stop_seq_id,
+          interstop_dist = res$interstop_dist
+        )
       )
     },
     workers = workers
-  ) |>
-    bind_rows()
+  )
+
+  sf::st_geometry(itin) <- do.call(c, lapply(anchored, `[[`, "geometry"))
+  interstop_distances <- bind_rows(lapply(anchored, `[[`, "dist"))
 
   stop_seq_proto <-
     stop_seq_proto |>
