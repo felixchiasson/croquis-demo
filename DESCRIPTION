@@ -46,3 +46,4 @@ Suggests:
 Config/testthat/edition: 3
 Config/renv/snapshot/include-self: TRUE
 VignetteBuilder: knitr
+Config/renv/settings/ignored.packages: croquis

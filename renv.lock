@@ -4,7 +4,7 @@
     "Repositories": [
       {
         "Name": "CRAN",
-        "URL": "https://cloud.r-project.org"
+        "URL": "https://packagemanager.posit.co/cran/latest"
       }
     ]
   },
@@ -117,67 +117,6 @@
       "Maintainer": "Kurt Hornik <Kurt.Hornik@R-project.org>",
       "Repository": "CRAN"
     },
-    "KernSmooth": {
-      "Package": "KernSmooth",
-      "Version": "2.23-26",
-      "Source": "Repository",
-      "Priority": "recommended",
-      "Date": "2024-12-10",
-      "Title": "Functions for Kernel Smoothing Supporting Wand & Jones (1995)",
-      "Authors@R": "c(person(\"Matt\", \"Wand\", role = \"aut\", email = \"Matt.Wand@uts.edu.au\"), person(\"Cleve\", \"Moler\", role = \"ctb\", comment = \"LINPACK routines in src/d*\"), person(\"Brian\", \"Ripley\", role = c(\"trl\", \"cre\", \"ctb\"), email = \"Brian.Ripley@R-project.org\", comment = \"R port and updates\"))",
-      "Note": "Maintainers are not available to give advice on using a package they did not author.",
-      "Depends": [
-        "R (>= 2.5.0)",
-        "stats"
-      ],
-      "Suggests": [
-        "MASS",
-        "carData"
-      ],
-      "Description": "Functions for kernel smoothing (and density estimation) corresponding to the book:  Wand, M.P. and Jones, M.C. (1995) \"Kernel Smoothing\".",
-      "License": "Unlimited",
-      "ByteCompile": "yes",
-      "NeedsCompilation": "yes",
-      "Author": "Matt Wand [aut], Cleve Moler [ctb] (LINPACK routines in src/d*), Brian Ripley [trl, cre, ctb] (R port and updates)",
-      "Maintainer": "Brian Ripley <Brian.Ripley@R-project.org>",
-      "Repository": "CRAN"
-    },
-    "MASS": {
-      "Package": "MASS",
-      "Version": "7.3-65",
-      "Source": "Repository",
-      "Priority": "recommended",
-      "Date": "2025-02-19",
-      "Revision": "$Rev: 3681 $",
-      "Depends": [
-        "R (>= 4.4.0)",
-        "grDevices",
-        "graphics",
-        "stats",
-        "utils"
-      ],
-      "Imports": [
-        "methods"
-      ],
-      "Suggests": [
-        "lattice",
-        "nlme",
-        "nnet",
-        "survival"
-      ],
-      "Authors@R": "c(person(\"Brian\", \"Ripley\", role = c(\"aut\", \"cre\", \"cph\"), email = \"Brian.Ripley@R-project.org\"), person(\"Bill\", \"Venables\", role = c(\"aut\", \"cph\")), person(c(\"Douglas\", \"M.\"), \"Bates\", role = \"ctb\"), person(\"Kurt\", \"Hornik\", role = \"trl\", comment = \"partial port ca 1998\"), person(\"Albrecht\", \"Gebhardt\", role = \"trl\", comment = \"partial port ca 1998\"), person(\"David\", \"Firth\", role = \"ctb\", comment = \"support functions for polr\"))",
-      "Description": "Functions and datasets to support Venables and Ripley, \"Modern Applied Statistics with S\" (4th edition, 2002).",
-      "Title": "Support Functions and Datasets for Venables and Ripley's MASS",
-      "LazyData": "yes",
-      "ByteCompile": "yes",
-      "License": "GPL-2 | GPL-3",
-      "URL": "http://www.stats.ox.ac.uk/pub/MASS4/",
-      "Contact": "<MASS@stats.ox.ac.uk>",
-      "NeedsCompilation": "yes",
-      "Author": "Brian Ripley [aut, cre, cph], Bill Venables [aut, cph], Douglas M. Bates [ctb], Kurt Hornik [trl] (partial port ca 1998), Albrecht Gebhardt [trl] (partial port ca 1998), David Firth [ctb] (support functions for polr)",
-      "Maintainer": "Brian Ripley <Brian.Ripley@R-project.org>",
-      "Repository": "CRAN"
-    },
     "R6": {
       "Package": "R6",
       "Version": "2.6.1",
@@ -255,11 +194,11 @@
     },
     "RcppSimdJson": {
       "Package": "RcppSimdJson",
-      "Version": "0.1.15",
+      "Version": "0.1.17",
       "Source": "Repository",
       "Type": "Package",
       "Title": "'Rcpp' Bindings for the 'simdjson' Header-Only Library for 'JSON' Parsing",
-      "Date": "2026-01-14",
+      "Date": "2026-10-16",
       "Authors@R": "c(person(\"Dirk\", \"Eddelbuettel\", role = c(\"aut\", \"cre\"), email = \"edd@debian.org\", comment = c(ORCID = \"0000-0001-6419-907X\")), person(\"Brendan\", \"Knapp\", role = \"aut\", comment = c(ORCID = \"0000-0003-3284-4972\")), person(\"Daniel\", \"Lemire\", role = \"aut\", comment = c(ORCID = \"0000-0003-3306-6922\")))",
       "Description": "The 'JSON' format is ubiquitous for data interchange, and the 'simdjson' library written by Daniel Lemire (and many contributors) provides a high-performance parser for these files which by relying on parallel 'SIMD' instruction manages to parse these files as faster than disk speed. See the <doi:10.48550/arXiv.1902.08318> paper for more details about 'simdjson'.  This package parses 'JSON' from string, file, or remote URLs under a variety of settings.",
       "License": "GPL (>= 2)",
@@ -276,8 +215,8 @@
       ],
       "URL": "https://github.com/eddelbuettel/rcppsimdjson/",
       "BugReports": "https://github.com/eddelbuettel/rcppsimdjson/issues",
-      "RoxygenNote": "7.1.1",
       "Encoding": "UTF-8",
+      "Config/roxygen2/version": "8.1.0",
       "NeedsCompilation": "yes",
       "Author": "Dirk Eddelbuettel [aut, cre] (ORCID: <https://orcid.org/0000-0001-6419-907X>), Brendan Knapp [aut] (ORCID: <https://orcid.org/0000-0003-3284-4972>), Daniel Lemire [aut] (ORCID: <https://orcid.org/0000-0003-3306-6922>)",
       "Maintainer": "Dirk Eddelbuettel <edd@debian.org>",
@@ -520,31 +459,6 @@
       "Maintainer": "Michel Lang <michellang@gmail.com>",
       "Repository": "CRAN"
     },
-    "class": {
-      "Package": "class",
-      "Version": "7.3-23",
-      "Source": "Repository",
-      "Priority": "recommended",
-      "Date": "2025-01-01",
-      "Depends": [
-        "R (>= 3.0.0)",
-        "stats",
-        "utils"
-      ],
-      "Imports": [
-        "MASS"
-      ],
-      "Authors@R": "c(person(\"Brian\", \"Ripley\", role = c(\"aut\", \"cre\", \"cph\"), email = \"Brian.Ripley@R-project.org\"), person(\"William\", \"Venables\", role = \"cph\"))",
-      "Description": "Various functions for classification, including k-nearest neighbour, Learning Vector Quantization and Self-Organizing Maps.",
-      "Title": "Functions for Classification",
-      "ByteCompile": "yes",
-      "License": "GPL-2 | GPL-3",
-      "URL": "http://www.stats.ox.ac.uk/pub/MASS4/",
-      "NeedsCompilation": "yes",
-      "Author": "Brian Ripley [aut, cre, cph], William Venables [cph]",
-      "Maintainer": "Brian Ripley <Brian.Ripley@R-project.org>",
-      "Repository": "CRAN"
-    },
     "classInt": {
       "Package": "classInt",
       "Version": "0.4-11",
@@ -701,65 +615,6 @@
       "Maintainer": "Davis Vaughan <davis@posit.co>",
       "Repository": "CRAN"
     },
-    "croquis": {
-      "Package": "croquis",
-      "Version": "0.1.0.9000",
-      "Source": "GitHub",
-      "Title": "Transit Sketch Planning with GTFS",
-      "Authors@R": "person(\"Julian\", \"Villafuerte Diaz\", , \"contact@julian.city\", role = c(\"aut\", \"cre\"), comment=c(ORCID=\"0000-0001-6543-7105\"))",
-      "Description": "Tools for rapidly creating detailed and realistic transit networks and schedules in GTFS format, including a front-end Shiny app called Croquis. Introduces the Simplified Speed and Frequency Specification (ssfs), a data structure that simplifies GTFS creation and editing. Includes functions for conversion between SSFS and GTFS formats. Includes a calibration engine which adjusts SSFS speeds based on a reference GTFS. Output GTFS are compatible with travel demand and accessibility analysis tools such as r5r.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://croquis.comotive.net, https://github.com/julian-city/croquis",
-      "BugReports": "https://github.com/julian-city/croquis/issues",
-      "Depends": [
-        "R (>= 4.1.0)"
-      ],
-      "Imports": [
-        "cli",
-        "data.table",
-        "digest",
-        "dplyr",
-        "DT",
-        "gtfstools",
-        "htmltools",
-        "htmlwidgets",
-        "ISOcodes",
-        "leaflet",
-        "lubridate",
-        "osrm",
-        "osmextract",
-        "plotly",
-        "purrr",
-        "rlang",
-        "sf",
-        "shiny",
-        "shinyjs",
-        "stringr",
-        "tibble",
-        "tidyr",
-        "valh"
-      ],
-      "Encoding": "UTF-8",
-      "Roxygen": "list(markdown = TRUE)",
-      "RoxygenNote": "7.3.3",
-      "LazyData": "true",
-      "Suggests": [
-        "ggplot2",
-        "knitr",
-        "rmarkdown",
-        "testthat (>= 3.0.0)"
-      ],
-      "Config/testthat/edition": "3",
-      "VignetteBuilder": "knitr",
-      "Author": "Julian Villafuerte Diaz [aut, cre] (ORCID: <https://orcid.org/0000-0001-6543-7105>)",
-      "Maintainer": "Julian Villafuerte Diaz <contact@julian.city>",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "julian-city",
-      "RemoteRepo": "croquis",
-      "RemoteRef": "3c8443b0c430263c775355e6b49c6f240df8a9fd",
-      "RemoteSha": "3c8443b0c430263c775355e6b49c6f240df8a9fd"
-    },
     "crosstalk": {
       "Package": "crosstalk",
       "Version": "1.2.2",
@@ -794,7 +649,7 @@
     },
     "curl": {
       "Package": "curl",
-      "Version": "8.0.0",
+      "Version": "8.1.0",
       "Source": "Repository",
       "Type": "Package",
       "Title": "A Modern and Flexible Web Client for R",
@@ -1392,7 +1247,7 @@
     },
     "gtfsio": {
       "Package": "gtfsio",
-      "Version": "1.2.1",
+      "Version": "1.2.2",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Read and Write General Transit Feed Specification (GTFS) Files",
@@ -1415,12 +1270,12 @@
       ],
       "VignetteBuilder": "knitr",
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.3",
       "Collate": "'gtfsio_error.R' 'assert_gtfs.R' 'assert_inputs.R' 'checks.R' 'data.R' 'export_gtfs.R' 'get_gtfs_standards.R' 'gtfs_methods.R' 'gtfs_subset.R' 'gtfsio.R' 'import_gtfs.R' 'new_gtfs.R' 'utils.R'",
       "LazyData": "true",
       "Depends": [
         "R (>= 3.5)"
       ],
+      "Config/roxygen2/version": "8.0.0",
       "NeedsCompilation": "no",
       "Author": "Daniel Herszenhut [aut] (ORCID: <https://orcid.org/0000-0001-8066-1105>), Flavio Poletti [aut, cre], Mark Padgham [aut], Rafael H. M. Pereira [rev] (ORCID: <https://orcid.org/0000-0003-2125-7465>), Tom Buckley [rev], Ipea - Institute for Applied Economic Research [cph, fnd]",
       "Maintainer": "Flavio Poletti <flavio.poletti@hotmail.ch>",
@@ -1881,45 +1736,6 @@
       "Maintainer": "Charlie Gao <charlie.gao@posit.co>",
       "Repository": "CRAN"
     },
-    "lattice": {
-      "Package": "lattice",
-      "Version": "0.22-9",
-      "Source": "Repository",
-      "Date": "2026-02-03",
-      "Priority": "recommended",
-      "Title": "Trellis Graphics for R",
-      "Authors@R": "c(person(\"Deepayan\", \"Sarkar\", role = c(\"aut\", \"cre\"), email = \"deepayan.sarkar@r-project.org\", comment = c(ORCID = \"0000-0003-4107-1553\")), person(\"Felix\", \"Andrews\", role = \"ctb\"), person(\"Kevin\", \"Wright\", role = \"ctb\", comment = \"documentation\"), person(\"Neil\", \"Klepeis\", role = \"ctb\"), person(\"Johan\", \"Larsson\", role = \"ctb\", comment = \"miscellaneous improvements\"), person(\"Zhijian (Jason)\", \"Wen\", role = \"cph\", comment = \"filled contour code\"), person(\"Paul\", \"Murrell\", role = \"ctb\", email = \"paul@stat.auckland.ac.nz\"), person(\"Stefan\", \"Eng\", role = \"ctb\", comment = \"violin plot improvements\"), person(\"Achim\", \"Zeileis\", role = \"ctb\", comment = \"modern colors\"), person(\"Alexandre\", \"Courtiol\", role = \"ctb\", comment = \"generics for larrows, lpolygon, lrect and lsegments\") )",
-      "Description": "A powerful and elegant high-level data visualization system inspired by Trellis graphics, with an emphasis on multivariate data. Lattice is sufficient for typical graphics needs, and is also flexible enough to handle most nonstandard requirements. See ?Lattice for an introduction.",
-      "Depends": [
-        "R (>= 4.0.0)"
-      ],
-      "Suggests": [
-        "KernSmooth",
-        "MASS",
-        "latticeExtra",
-        "colorspace"
-      ],
-      "Imports": [
-        "grid",
-        "grDevices",
-        "graphics",
-        "stats",
-        "utils"
-      ],
-      "Enhances": [
-        "chron",
-        "zoo"
-      ],
-      "LazyLoad": "yes",
-      "LazyData": "yes",
-      "License": "GPL (>= 2)",
-      "URL": "https://lattice.r-forge.r-project.org/",
-      "BugReports": "https://github.com/deepayan/lattice/issues",
-      "NeedsCompilation": "yes",
-      "Author": "Deepayan Sarkar [aut, cre] (ORCID: <https://orcid.org/0000-0003-4107-1553>), Felix Andrews [ctb], Kevin Wright [ctb] (documentation), Neil Klepeis [ctb], Johan Larsson [ctb] (miscellaneous improvements), Zhijian (Jason) Wen [cph] (filled contour code), Paul Murrell [ctb], Stefan Eng [ctb] (violin plot improvements), Achim Zeileis [ctb] (modern colors), Alexandre Courtiol [ctb] (generics for larrows, lpolygon, lrect and lsegments)",
-      "Maintainer": "Deepayan Sarkar <deepayan.sarkar@r-project.org>",
-      "Repository": "CRAN"
-    },
     "lazyeval": {
       "Package": "lazyeval",
       "Version": "0.2.3",
@@ -2310,12 +2126,12 @@
     },
     "osrm": {
       "Package": "osrm",
-      "Version": "5.0.0",
+      "Version": "6.0.0",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Interface Between R and the OpenStreetMap-Based Routing Service OSRM",
-      "Authors@R": "c(person(\"Timothée\", \"Giraud\", email = \"timothee.giraud@cnrs.fr\", role = c(\"cre\",\"aut\"),  comment = c(ORCID = \"0000-0002-1932-3323\")), person(\"Robin\", \"Cura\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0001-5926-1828\")), person(\"Matthieu\", \"Viry\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0002-0693-8556\")), person(\"Robin\", \"Lovelace\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0001-5679-6536\")) )",
-      "Description": "An interface between R and the 'OSRM' API. 'OSRM' is a routing service based on 'OpenStreetMap' data. See <http://project-osrm.org/> for more information. This package enables the computation of routes, trips, isochrones and travel distances matrices (travel time and kilometric distance).",
+      "Authors@R": "c(person(\"Timothée\", \"Giraud\", email = \"timothee.giraud@cnrs.fr\", role = c(\"cre\",\"aut\"),  comment = c(ORCID = \"0000-0002-1932-3323\")), person(\"Robin\", \"Cura\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0001-5926-1828\")), person(\"Matthieu\", \"Viry\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0002-0693-8556\")), person(\"Robin\", \"Lovelace\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0001-5679-6536\")), person(\"Egor\", \"Kotov\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0001-6690-5345\")) )",
+      "Description": "An interface between R and the 'OSRM' API. 'OSRM' is a routing service based on 'OpenStreetMap' data. See <https://project-osrm.org/> for more information. This package enables the computation of routes, trips, isochrones and travel distances matrices (travel time and kilometric distance).",
       "License": "GPL (>= 3)",
       "Imports": [
         "RcppSimdJson",
@@ -2334,12 +2150,12 @@
         "covr",
         "terra"
       ],
-      "URL": "https://github.com/riatelab/osrm",
-      "BugReports": "https://github.com/riatelab/osrm/issues",
+      "URL": "https://codeberg.org/riatelab/osrm, https://riatelab.r-universe.dev/osrm",
+      "BugReports": "https://codeberg.org/riatelab/osrm/issues",
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.3",
+      "Config/roxygen2/version": "8.1.0",
       "NeedsCompilation": "no",
-      "Author": "Timothée Giraud [cre, aut] (ORCID: <https://orcid.org/0000-0002-1932-3323>), Robin Cura [ctb] (ORCID: <https://orcid.org/0000-0001-5926-1828>), Matthieu Viry [ctb] (ORCID: <https://orcid.org/0000-0002-0693-8556>), Robin Lovelace [ctb] (ORCID: <https://orcid.org/0000-0001-5679-6536>)",
+      "Author": "Timothée Giraud [cre, aut] (ORCID: <https://orcid.org/0000-0002-1932-3323>), Robin Cura [ctb] (ORCID: <https://orcid.org/0000-0001-5926-1828>), Matthieu Viry [ctb] (ORCID: <https://orcid.org/0000-0002-0693-8556>), Robin Lovelace [ctb] (ORCID: <https://orcid.org/0000-0001-5679-6536>), Egor Kotov [ctb] (ORCID: <https://orcid.org/0000-0001-6690-5345>)",
       "Maintainer": "Timothée Giraud <timothee.giraud@cnrs.fr>",
       "Repository": "CRAN"
     },
@@ -3025,7 +2841,7 @@
     },
     "s2": {
       "Package": "s2",
-      "Version": "1.1.12",
+      "Version": "1.1.13",
       "Source": "Repository",
       "Title": "Spherical Geometry Operators Using the S2 Geometry Library",
       "Authors@R": "c( person(given = \"Dewey\", family = \"Dunnington\", role = c(\"aut\"), email = \"dewey@fishandwhistle.net\", comment = c(ORCID = \"0000-0002-9415-4582\")), person(given = \"Edzer\", family = \"Pebesma\", role = c(\"aut\", \"cre\"), email = \"edzer.pebesma@uni-muenster.de\", comment = c(ORCID = \"0000-0001-8049-7069\")), person(\"Ege\", \"Rubak\", email=\"rubak@math.aau.dk\", role = c(\"aut\")), person(\"Jeroen\", \"Ooms\", , \"jeroen.ooms@stat.ucla.edu\", role = \"ctb\", comment = \"configure script\"), person(family = \"Google, Inc.\", role = \"cph\", comment = \"Original s2geometry.io source code\") )",
@@ -3385,7 +3201,7 @@
     },
     "sp": {
       "Package": "sp",
-      "Version": "2.2-3",
+      "Version": "2.2-4",
       "Source": "Repository",
       "Title": "Classes and Methods for Spatial Data",
       "Authors@R": "c(person(\"Edzer\", \"Pebesma\", role = c(\"aut\", \"cre\"), email = \"edzer.pebesma@uni-muenster.de\"), person(\"Roger\", \"Bivand\", role = \"aut\", email = \"Roger.Bivand@nhh.no\"), person(\"Barry\", \"Rowlingson\", role = \"ctb\"), person(\"Virgilio\", \"Gomez-Rubio\", role = \"ctb\"), person(\"Robert\", \"Hijmans\", role = \"ctb\"), person(\"Michael\", \"Sumner\", role = \"ctb\"), person(\"Don\", \"MacQueen\", role = \"ctb\"), person(\"Jim\", \"Lemon\", role = \"ctb\"), person(\"Finn\", \"Lindgren\", role = \"ctb\"), person(\"Josh\", \"O'Brien\", role = \"ctb\"), person(\"Joseph\", \"O'Rourke\", role = \"ctb\"), person(\"Patrick\", \"Hausmann\", role = \"ctb\"), person(\"Sebastian\", \"Meyer\", role = \"ctb\"))",
@@ -3757,7 +3573,7 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.60",
+      "Version": "0.61",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents",
